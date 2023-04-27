@@ -1,0 +1,6 @@
+name: GenshinCraft
+main: net.deechael.genshincraft.GenshinCraft
+version: 0.1.0
+api-version: 1.19
+author: "DeeChael"
+description: "Genshin Craft Executor"
