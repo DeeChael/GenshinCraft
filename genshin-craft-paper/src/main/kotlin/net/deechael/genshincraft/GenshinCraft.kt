@@ -36,14 +36,14 @@ class GenshinCraft : GenshinPlugin() {
         slF4JLogger.info("=      DEVELOPED BY DEECHAEL     =")
         slF4JLogger.info("==================================")
 
-//        // Main functions
-//        listener(PickupItemListener)
-//        listener(DropItemListener)
-//        listener(PlayerInventoryListener)
-//
-//        // Util functions
-//        listener(ConversationManager)
-//        listener(AudienceManager)
+        // Main functions
+        listener(PickupItemListener)
+        listener(DropItemListener)
+        listener(PlayerInventoryListener)
+
+        // Util functions
+        listener(ConversationManager)
+        listener(AudienceManager)
 
         listener(commandManager)
 

@@ -7,10 +7,12 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.format.TextDecoration
 import org.bukkit.entity.Player
+import org.bukkit.event.EventHandler
+import org.bukkit.event.Listener
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.inventory.PlayerInventory
 
-object PlayerInventoryListener: EventListener<InventoryClickEvent>() {
+object PlayerInventoryListener: Listener {
 
     /* This is used to make custom gui
      *
@@ -20,15 +22,19 @@ object PlayerInventoryListener: EventListener<InventoryClickEvent>() {
      * |    |    |    |    |    |    |    |    |    |
      */
 
-    override fun event(event: InventoryClickEvent) {
-        val player = filter { event.whoClicked as Player }
-        filter(event.inventory is PlayerInventory)
+    @EventHandler
+    fun event(event: InventoryClickEvent) {
+        if (event.whoClicked !is Player)
+            return
+        val player = event.whoClicked as Player
+        if (event.inventory !is PlayerInventory)
+            return
 
-        filter(event.rawSlot == 9) {
+        if (event.rawSlot == 9) {
             shop(event, player)
+        } else if (event.rawSlot == 10) {
+
         }
-
-
 
         event.isCancelled = true
     }

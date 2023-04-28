@@ -1,11 +1,13 @@
 package net.deechael.genshincraft.listeners
 
-import net.deechael.genshincraft.util.listener.EventListener
+import org.bukkit.event.EventHandler
+import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerDropItemEvent
 
-object DropItemListener: EventListener<PlayerDropItemEvent>() {
+object DropItemListener: Listener {
 
-    override fun event(event: PlayerDropItemEvent) {
+    @EventHandler
+    fun event(event: PlayerDropItemEvent) {
         event.isCancelled = true
     }
 

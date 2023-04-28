@@ -3,13 +3,19 @@ package net.deechael.genshincraft.listeners
 import net.deechael.genshincraft.util.listener.EventListener
 import org.bukkit.GameMode
 import org.bukkit.entity.Player
+import org.bukkit.event.EventHandler
+import org.bukkit.event.Listener
 import org.bukkit.event.entity.EntityPickupItemEvent
 
-object PickupItemListener: EventListener<EntityPickupItemEvent>() {
+object PickupItemListener: Listener {
 
-    override fun event(event: EntityPickupItemEvent) {
-        val player = filter { return@filter event.entity as Player }
-        filter(player.gameMode == GameMode.ADVENTURE)
+    @EventHandler
+    fun event(event: EntityPickupItemEvent) {
+        if (event.entity is Player)
+            return
+        val player = event.entity as Player
+        if (player.gameMode != GameMode.ADVENTURE)
+            return
 
         val stack = event.item.itemStack.clone()
 
