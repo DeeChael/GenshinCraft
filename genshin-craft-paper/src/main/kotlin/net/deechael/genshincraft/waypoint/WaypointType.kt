@@ -1,0 +1,15 @@
+package net.deechael.genshincraft.waypoint
+
+enum class WaypointType {
+
+    STATUE_OF_SEVEN_ANEMO,
+    STATUE_OF_SEVEN_GEO,
+    STATUE_OF_SEVEN_ELECTRO,
+    STATUE_OF_SEVEN_DENDRO,
+    STATUE_OF_SEVEN_HYDRO,
+    STATUE_OF_SEVEN_PYRO,
+    STATUE_OF_SEVEN_CRYO,
+    WAYPOINT,
+    PORTABLE_WAYPOINT
+
+}

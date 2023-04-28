@@ -2,8 +2,8 @@ package net.deechael.conversation.api;
 
 import net.deechael.conversation.builder.ConversationBuilder;
 import net.deechael.genshincraft.util.conversation.ConversationAPI;
+import net.kyori.adventure.sound.Sound;
 import net.kyori.adventure.text.Component;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -53,8 +53,7 @@ public interface Conversation {
      *
      * @return sound
      */
-    @Nullable
-    Sound sound();
+    @Nullable Sound sound();
 
     /**
      * Start conversation for a player

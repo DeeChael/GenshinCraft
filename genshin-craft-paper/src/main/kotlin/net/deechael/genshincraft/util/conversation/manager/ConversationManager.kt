@@ -5,9 +5,9 @@ import net.deechael.conversation.api.Node
 import net.deechael.conversation.event.ConversationEndEvent
 import net.deechael.conversation.event.SwitchNodeEvent
 import net.deechael.conversation.impl.event.ChoiceEventImpl
-import net.deechael.genshincraft.util.StringUtil
 import net.deechael.genshincraft.util.PlayerUtil
 import net.deechael.genshincraft.util.RunnerUtil
+import net.deechael.genshincraft.util.StringUtil
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.event.ClickEvent
 import org.bukkit.entity.Player
@@ -18,7 +18,7 @@ import org.bukkit.event.player.PlayerQuitEvent
 import org.bukkit.scheduler.BukkitRunnable
 import java.util.*
 
-object ConversationManager: Listener {
+object ConversationManager : Listener {
 
 
     private val QUEUE: MutableMap<String, Node> = HashMap()
@@ -125,7 +125,8 @@ object ConversationManager: Listener {
         val event = SwitchNodeEvent(conversation, node, player)
         RunnerUtil.call(event, true)
         PlayerUtil.clearScreen(player)
-        if (sound != null) player.playSound(player.location, sound, 1.0f, 1.0f)
+        if (sound != null)
+            player.playSound(sound)
         player.sendMessage(message)
         RunnerUtil.run(runnable, node.waiting().toLong())
     }
@@ -150,5 +151,5 @@ object ConversationManager: Listener {
             }
         }
     }
-    
+
 }

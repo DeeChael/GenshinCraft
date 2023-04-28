@@ -11,7 +11,7 @@ import org.bukkit.event.Listener
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.inventory.PlayerInventory
 
-object PlayerInventoryListener: Listener {
+object PlayerInventoryListener : Listener {
 
     /* This is used to make custom gui
      *
@@ -41,9 +41,11 @@ object PlayerInventoryListener: Listener {
     fun shop(event: InventoryClickEvent, player: Player) {
         val menu = GenshinCraft.createMenu()
         val renderer = menu.add(player.audience())
-            .title(Component.text("| Shop |")
-                .decorate(TextDecoration.BOLD)
-                .color(NamedTextColor.GOLD))
+            .title(
+                Component.text("| Shop |")
+                    .decorate(TextDecoration.BOLD)
+                    .color(NamedTextColor.GOLD)
+            )
             .line(6)
 
     }

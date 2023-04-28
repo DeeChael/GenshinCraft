@@ -2,8 +2,8 @@ package net.deechael.conversation.api;
 
 import net.deechael.conversation.builder.NodeBuilder;
 import net.deechael.genshincraft.util.conversation.ConversationAPI;
+import net.kyori.adventure.sound.Sound;
 import net.kyori.adventure.text.Component;
-import org.bukkit.Sound;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

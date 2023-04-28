@@ -43,7 +43,7 @@ fun Player.audience(): Audience {
     return audienceMap.getOrPut(this) { AudienceImpl(this) }
 }
 
-object AudienceManager: Listener {
+object AudienceManager : Listener {
 
     @EventHandler
     fun quit(quitEvent: PlayerQuitEvent) {

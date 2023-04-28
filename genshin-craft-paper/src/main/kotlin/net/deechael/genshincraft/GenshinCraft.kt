@@ -3,6 +3,7 @@ package net.deechael.genshincraft
 import ltd.kumo.plutomc.framework.bukkit.command.BukkitCommandManager
 import ltd.kumo.plutomc.framework.shared.command.arguments.ArgumentString
 import net.deechael.genshincraft.command.*
+import net.deechael.genshincraft.conversation.*
 import net.deechael.genshincraft.listeners.DropItemListener
 import net.deechael.genshincraft.listeners.PickupItemListener
 import net.deechael.genshincraft.listeners.PlayerInventoryListener
@@ -12,7 +13,10 @@ import net.deechael.genshincraft.util.plugin.GenshinPlugin
 import net.deechael.sudo.Menu
 import net.deechael.sudo.impl.MenuImpl
 import net.kyori.adventure.text.Component
-import org.slf4j.Logger
+import net.kyori.adventure.text.format.NamedTextColor
+import net.kyori.adventure.text.format.TextDecoration
+import org.bukkit.Material
+import org.bukkit.inventory.ItemStack
 
 class GenshinCraft : GenshinPlugin() {
 
@@ -47,7 +51,6 @@ class GenshinCraft : GenshinPlugin() {
 
         listener(commandManager)
 
-
         test()
     }
 
@@ -59,9 +62,69 @@ class GenshinCraft : GenshinPlugin() {
                         sender.sendMessage(Component.text("this is sub command!"))
                     }
                 }
+                Literal("conversation") {
+                    PlayerExecutor { player, _ ->
+                        try {
+                            val conversation = Conversation {
+                                Name(
+                                    Component.text("Old Man")
+                                        .color(NamedTextColor.GOLD)
+                                )
+                                Text("Hello, young man!")
+                                Waiting(2)
+
+                                Node {
+                                    Text("There is a long time that nobody comes here")
+                                    Waiting(2)
+
+                                    Node {
+                                        Text("So what can I do for ya?")
+
+                                        Node {
+                                            Text("Okay, here you are!")
+                                            Button {
+                                                Name(
+                                                    Component.text("[An apple please]")
+                                                        .color(NamedTextColor.RED)
+                                                        .decorate(TextDecoration.BOLD)
+                                                )
+                                                Executor { event ->
+                                                    event.player.inventory.addItem(ItemStack(Material.APPLE))
+                                                }
+                                            }
+                                        }
+
+                                        Node {
+                                            Text("Well, good bye!")
+                                            Button {
+                                                Name(
+                                                    Component.text("[No, thanks]")
+                                                        .color(NamedTextColor.GRAY)
+                                                        .decorate(TextDecoration.ITALIC)
+                                                )
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            player.playConversation(conversation)
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
+                    }
+                }
                 Argument("name", ArgumentString::class.java) {
                     Executor { sender, context ->
-                        sender.sendMessage(Component.text("your input is ${context.argument(ArgumentString::class.java, "name")}"))
+                        sender.sendMessage(
+                            Component.text(
+                                "your input is ${
+                                    context.argument(
+                                        ArgumentString::class.java,
+                                        "name"
+                                    )
+                                }"
+                            )
+                        )
                     }
 
                     TextSuggestion(

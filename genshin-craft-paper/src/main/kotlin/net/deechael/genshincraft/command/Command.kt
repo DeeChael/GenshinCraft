@@ -24,19 +24,20 @@ class Command {
     }
 }
 
+@Target(AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.FUNCTION, AnnotationTarget.TYPE)
 annotation class CommandBody {
 
 }
 
 @CommandBody
-fun Literal(name: String, @CommandBody body: Command.() -> Unit): Command {
+fun Literal(name: String, body: @CommandBody Command.() -> Unit): Command {
     val command = Command(name)
     command.apply(body)
     return command
 }
 
 @CommandBody
-fun Command.Literal(name: String, @CommandBody body: Command.() -> Unit): Command  {
+fun Command.Literal(name: String, body: @CommandBody Command.() -> Unit): Command {
     val command = Command(name)
     command.apply(body)
     this.original().then(command.original())
@@ -44,7 +45,7 @@ fun Command.Literal(name: String, @CommandBody body: Command.() -> Unit): Comman
 }
 
 @CommandBody
-fun Command.Argument(name: String, type: Class<out Argument<*>>, @CommandBody body: Command.() -> Unit): Command {
+fun Command.Argument(name: String, type: Class<out Argument<*>>, body: @CommandBody Command.() -> Unit): Command {
     val command = Command(this.original().then(name, type))
     command.apply(body)
     this.original().then(command.original())
@@ -52,21 +53,21 @@ fun Command.Argument(name: String, type: Class<out Argument<*>>, @CommandBody bo
 }
 
 @CommandBody
-fun Command.Executor(@CommandBody body: (CommandSender, CommandContext) -> Unit) {
+fun Command.Executor(body: @CommandBody (CommandSender, CommandContext) -> Unit) {
     this.original().apply {
         this.executes(body)
     }
 }
 
 @CommandBody
-fun Command.PlayerExecutor(@CommandBody body: (Player, CommandContext) -> Unit) {
+fun Command.PlayerExecutor(body: @CommandBody (Player, CommandContext) -> Unit) {
     this.original().apply {
         this.executesPlayer(body)
     }
 }
 
 @CommandBody
-fun Command.Requirement(@CommandBody body: Command.(CommandSender) -> Boolean) {
+fun Command.Requirement(body: @CommandBody Command.(CommandSender) -> Boolean) {
     this.original().apply {
         this.requires {
             body(it)

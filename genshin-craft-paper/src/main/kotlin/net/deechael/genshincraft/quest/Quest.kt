@@ -1,7 +1,6 @@
 package net.deechael.genshincraft.quest
 
-class Quest: Requirement() {
-
+class Quest : Requirement() {
 
 
 }

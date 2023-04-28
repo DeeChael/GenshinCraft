@@ -2,7 +2,7 @@ package net.deechael.genshincraft.gacha
 
 import com.google.gson.JsonObject
 import net.deechael.dutil.gson.JOBuilder
-import java.util.Random
+import java.util.*
 
 // Based on https://zhuanlan.zhihu.com/p/522246996
 

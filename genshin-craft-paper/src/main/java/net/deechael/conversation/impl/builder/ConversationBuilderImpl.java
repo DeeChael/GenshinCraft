@@ -4,8 +4,8 @@ import net.deechael.conversation.api.Conversation;
 import net.deechael.conversation.api.Node;
 import net.deechael.conversation.builder.ConversationBuilder;
 import net.deechael.conversation.impl.ConversationImpl;
+import net.kyori.adventure.sound.Sound;
 import net.kyori.adventure.text.Component;
-import org.bukkit.Sound;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

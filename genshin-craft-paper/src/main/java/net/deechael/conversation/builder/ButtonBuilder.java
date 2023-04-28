@@ -31,7 +31,7 @@ public interface ButtonBuilder {
      * @return builder
      */
     @NotNull
-    ButtonBuilder hover(@NotNull Component component);
+    ButtonBuilder hover(@Nullable Component component);
 
     /**
      * Set the executor of the button

@@ -23,7 +23,7 @@ public class ButtonBuilderImpl implements ButtonBuilder {
     }
 
     @Override
-    public @NotNull ButtonBuilder hover(@NotNull Component component) {
+    public @NotNull ButtonBuilder hover(@Nullable Component component) {
         this.hover = component;
         return this;
     }

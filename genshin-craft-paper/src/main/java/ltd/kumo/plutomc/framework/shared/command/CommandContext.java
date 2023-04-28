@@ -16,6 +16,7 @@ public interface CommandContext {
 
     /**
      * 发出错误信息，终止指令执行，给指令执行者提醒错误的内容
+     *
      * @param message 信息
      */
     void error(String message) throws CommandSyntaxException;

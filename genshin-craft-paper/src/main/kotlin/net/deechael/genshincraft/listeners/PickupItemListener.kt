@@ -6,7 +6,7 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.entity.EntityPickupItemEvent
 
-object PickupItemListener: Listener {
+object PickupItemListener : Listener {
 
     @EventHandler
     fun event(event: EntityPickupItemEvent) {

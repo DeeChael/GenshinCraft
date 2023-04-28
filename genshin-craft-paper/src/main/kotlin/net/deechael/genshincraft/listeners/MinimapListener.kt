@@ -8,7 +8,7 @@ import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.MapMeta
 import org.bukkit.map.MapView
 
-object MinimapListener: Listener {
+object MinimapListener : Listener {
 
     @EventHandler
     fun event(event: PlayerMoveEvent) {
