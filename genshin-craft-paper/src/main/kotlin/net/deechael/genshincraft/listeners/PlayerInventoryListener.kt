@@ -2,7 +2,6 @@ package net.deechael.genshincraft.listeners
 
 import net.deechael.genshincraft.GenshinCraft
 import net.deechael.genshincraft.util.audience
-import net.deechael.genshincraft.util.listener.EventListener
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.format.TextDecoration

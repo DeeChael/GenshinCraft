@@ -1,6 +1,5 @@
 package net.deechael.genshincraft.listeners
 
-import net.deechael.genshincraft.util.listener.EventListener
 import org.bukkit.GameMode
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
