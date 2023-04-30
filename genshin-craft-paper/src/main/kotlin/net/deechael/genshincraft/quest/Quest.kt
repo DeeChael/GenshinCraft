@@ -1,6 +1,17 @@
 package net.deechael.genshincraft.quest
 
-class Quest : Requirement() {
+open class Quest(val title: String) : Requirement() {
+
+
+
+}
+
+interface QuestNode {
+
+}
+
+class ConversationQuestNode: QuestNode {
+
 
 
 }

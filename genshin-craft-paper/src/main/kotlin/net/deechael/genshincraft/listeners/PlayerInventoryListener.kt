@@ -48,6 +48,7 @@ object PlayerInventoryListener : Listener {
             )
             .line(6)
 
+        renderer.render()
     }
 
 }

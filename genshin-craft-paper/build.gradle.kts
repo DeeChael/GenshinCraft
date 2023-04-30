@@ -11,6 +11,8 @@ dependencies {
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.21")
     implementation("com.zaxxer:HikariCP:5.0.1")
+    implementation("net.sf.trove4j:trove4j:3.0.3")
+    implementation("ch.ethz.globis.phtree:phtree:2.5.0")
 
     compileOnly("org.projectlombok:lombok:1.18.26")
 
